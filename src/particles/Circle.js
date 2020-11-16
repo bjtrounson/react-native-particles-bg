@@ -1,7 +1,7 @@
 import React from "react";
 import Proton from "proton-engine";
 import RAFManager from "raf-manager";
-import Canvas from "./Canvas.jsx";
+import Canvas from "./Canvas";
 
 export default class Circle extends React.Component {
   constructor(props) {

@@ -6,9 +6,7 @@
   "license": "MIT",
   "repository": "https://github.com/lindelof/particles-bg",
   "homepage": "https://github.com/lindelof/particles-bg",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "jsnext:main": "dist/index.es.js",
+  "main": "src/index.js",
   "engines": {
     "node": ">=8",
     "npm": ">=5"
@@ -50,7 +48,7 @@
     "rollup-plugin-url": "^1.4.0"
   },
   "files": [
-    "dist"
+    "src"
   ],
   "dependencies": {
     "proton-engine": "^4.1.3",

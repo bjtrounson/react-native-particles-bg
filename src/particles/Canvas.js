@@ -50,7 +50,7 @@ export default class Canvas extends React.Component {
       window.removeEventListener("resize", this.resize);
       clearInterval(this._id);
     }catch(e){
-      
+
     }
   }
 
@@ -96,7 +96,7 @@ export default class Canvas extends React.Component {
   handleMouseDown(e) {
     this.props.onMouseDown && this.props.onMouseDown(e);
   }
-  
+
   render() {
     return (
       <canvas

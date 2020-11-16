@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import Rand from "./utils/Rand.js";
-import Ball from "./particles/Ball.jsx";
-import Color from "./particles/Color.jsx";
-import Custom from "./particles/Custom.jsx";
-import Lines from "./particles/Lines.jsx";
-import Thick from "./particles/Thick.jsx";
-import Square from "./particles/Square.jsx";
-import Cobweb from "./particles/Cobweb.jsx";
-import Circle from "./particles/Circle.jsx";
-import Tadpole from "./particles/Tadpole.jsx";
-import Polygon from "./particles/Polygon.jsx";
-import Fountain from "./particles/Fountain.jsx";
+import Ball from "./particles/Ball";
+import Color from "./particles/Color";
+import Custom from "./particles/Custom";
+import Lines from "./particles/Lines";
+import Thick from "./particles/Thick";
+import Square from "./particles/Square";
+import Cobweb from "./particles/Cobweb";
+import Circle from "./particles/Circle";
+import Tadpole from "./particles/Tadpole";
+import Polygon from "./particles/Polygon";
+import Fountain from "./particles/Fountain";
 
 export default class ParticlesBg extends Component {
 
