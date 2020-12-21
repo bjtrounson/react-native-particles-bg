@@ -1,5 +1,7 @@
 import React from "react";
+import {Platform, View} from 'react-native';
 import RAFManager from "raf-manager";
+import {GCanvasView} from '@flyskywhy/react-native-gcanvas';
 
 export default class Canvas extends React.Component {
   constructor(props) {
@@ -7,36 +9,54 @@ export default class Canvas extends React.Component {
 
     this._id = 0;
     this.size = { width: 0, height: 0 };
-    this.canvasRef = React.createRef();
+    this.canvas = null;
+    this.state = {
+      isLayouted: false,
+    };
+    this.style = {};
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      this.initCanvas();
+    if (Platform.OS === 'web') {
       this.resize = this.resize.bind(this);
       window.addEventListener("resize", this.resize);
-    }, 100);
+    }
 
-    const canvas = this.canvasRef.current;
-    this.props.onCanvasDidMount && this.props.onCanvasDidMount(canvas);
+    this.canvas && this.props.onCanvasDidMount && this.props.onCanvasDidMount(this.canvas);
   }
 
-  initCanvas() {
-    const canvas = this.canvasRef.current;
+  initCanvas(canvas) {
+    if (this.canvas) {
+      return;
+    }
+
+    this.canvas = canvas;
+    let width;
+    let height;
+
+    if (Platform.OS === 'web') {
+      width = this.canvas.clientWidth;
+      height = this.canvas.clientHeight;
+    } else {
+      width = this.canvas.width;
+      height = this.canvas.height;
+    }
     if (this.props.globalCompositeOperation) {
-      const context = canvas.getContext("2d");
+      const context = this.canvas.getContext("2d");
       context.globalCompositeOperation = this.props.globalCompositeOperation;
     }
 
-    const { width, height } = this.setCanvasSize(canvas);
-    this.heartbeatDetectionCanvasSize(canvas);
-    this.props.onCanvasInited(canvas, width, height);
+    if (Platform.OS === 'web') {
+      this.setCanvasSize(this.canvas);
+      this.heartbeatDetectionCanvasSize(this.canvas);
+    }
+    this.props.onCanvasInited(this.canvas, width, height);
   }
 
   heartbeatDetectionCanvasSize(canvas) {
     this._id = setInterval(() => {
-      if(this.canvasRef.current){
-        const newHeight = this.canvasRef.current.clientHeight;
+      if(this.canvas){
+        const newHeight = this.canvas.clientHeight;
         if (newHeight !== this.size.height) {
           const { width, height } = this.setCanvasSize(canvas);
           this.props.onResize && this.props.onResize(width, height);
@@ -46,23 +66,24 @@ export default class Canvas extends React.Component {
   }
 
   componentWillUnmount() {
-    try{
-      window.removeEventListener("resize", this.resize);
-      clearInterval(this._id);
-    }catch(e){
-
+    if (Platform.OS === 'web') {
+      try{
+        window.removeEventListener("resize", this.resize);
+        clearInterval(this._id);
+      }catch(e){}
     }
   }
 
   resize() {
-    const canvas = this.canvasRef.current;
-    const { width, height } = this.setCanvasSize(canvas);
-    this.props.onResize && this.props.onResize(width, height);
+    if (this.canvas) {
+      const { width, height } = this.setCanvasSize(this.canvas);
+      this.props.onResize && this.props.onResize(width, height);
+    }
   }
 
   setCanvasSize(canvas) {
-    const width = this.canvasRef.current.clientWidth;
-    const height = this.canvasRef.current.clientHeight;
+    const width = this.canvas.clientWidth;
+    const height = this.canvas.clientHeight;
 
     this.size.width = width;
     this.size.height = height;
@@ -97,13 +118,41 @@ export default class Canvas extends React.Component {
     this.props.onMouseDown && this.props.onMouseDown(e);
   }
 
+  _onLayout(event) {
+    const {
+      width,
+      height,
+    } = event.nativeEvent.layout;
+    this.style = this.getStyle();
+    this.style.width = width;
+    this.style.height = height;
+
+    this.setState({
+      isLayouted: true,
+    });
+  }
+
   render() {
-    return (
-      <canvas
-        ref={this.canvasRef}
-        onMouseDown={this.handleMouseDown.bind(this)}
-        style={this.getStyle()}
-      />
-    );
+    if (Platform.OS === 'web') {
+      return (
+        <canvas
+          ref={this.initCanvas.bind(this)}
+          onMouseDown={this.handleMouseDown.bind(this)}
+          style={this.getStyle()}
+        />
+      );
+    } else {
+      return (
+        <View onLayout={this._onLayout.bind(this)} style={this.getStyle()}>
+          {this.state.isLayouted === false ? null :
+            <GCanvasView
+              onCanvasCreate={this.initCanvas.bind(this)}
+              onMouseDown={this.handleMouseDown.bind(this)}
+              style={this.style}
+            />
+          }
+        </View>
+      );
+    }
   }
 }

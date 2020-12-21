@@ -1,4 +1,4 @@
-# particles-bg
+# react-native-particles-bg
 
 [![NPM](https://img.shields.io/npm/v/particles-bg.svg)](https://www.npmjs.com/package/particles-bg) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -39,7 +39,7 @@ npm install --save particles-bg
 ```jsx
 import React, { Component } from 'react'
 
-import ParticlesBg from 'particles-bg'
+import ParticlesBg from 'react-native-particles-bg'
 
 class Example extends Component {
   render () {
@@ -123,10 +123,9 @@ You can use type="custom" to achieve a higher degree of freedom for the particle
     };
 
     return (
-      <div>
-        <SignIn />
+      <View style={{width: 360, height :700, flex: 1}}>
         <ParticlesBg type="custom" config={config} bg={true} />
-      </div>
+      </View>
     )
 ```
 
