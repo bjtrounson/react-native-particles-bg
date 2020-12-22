@@ -107,6 +107,7 @@ export default class Canvas extends React.Component {
       style = Object.assign(style, {
         position: "absolute",
         zIndex: -1,
+        elevation: -1, // Android need elevation not zIndex
         top: 0,
         left: 0
       });

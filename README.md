@@ -1,6 +1,9 @@
 # react-native-particles-bg
 
-[![NPM](https://img.shields.io/npm/v/particles-bg.svg)](https://www.npmjs.com/package/particles-bg) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![npm version](http://img.shields.io/npm/v/react-native-particles-bg.svg?style=flat-square)](https://npmjs.org/package/react-native-particles-bg "View this project on npm")
+[![npm downloads](http://img.shields.io/npm/dm/react-native-particles-bg.svg?style=flat-square)](https://npmjs.org/package/react-native-particles-bg "View this project on npm")
+[![npm licence](http://img.shields.io/npm/l/react-native-particles-bg.svg?style=flat-square)](https://npmjs.org/package/react-native-particles-bg "View this project on npm")
+[![Platform](https://img.shields.io/badge/platform-ios%20%7C%20android-989898.svg?style=flat-square)](https://npmjs.org/package/react-native-particles-bg "View this project on npm")
 
 > React Native (Web) component for particles backgrounds
 
@@ -47,14 +50,15 @@ import ParticlesBg from 'react-native-particles-bg'
 class Example extends Component {
   render () {
     return (
-      <>
-        <div>...</div>
+      <View style={{width: 360, height :700, flex: 1}}>
         <ParticlesBg type="circle" bg={true} />
-      </>
+        <TouchableOpacity>...</TouchableOpacity>
+      </View>
     )
   }
 }
 ```
+On Web, you can also put `<ParticlesBg/>` after `<TouchableOpacity/>`, since need support Android, use above instead.
 
 ## Parameter Description
 ```jsx
