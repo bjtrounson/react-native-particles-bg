@@ -2,9 +2,12 @@
 
 [![NPM](https://img.shields.io/npm/v/particles-bg.svg)](https://www.npmjs.com/package/particles-bg) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-> React component for particles backgrounds
+> React Native (Web) component for particles backgrounds
 
 This project refers to the source code of the [__Proton__](https://github.com/drawcall/Proton) official website, I packaged it into a component. You can use it casually in your own projects. Thanks to the great author.
+
+#### This is `react-native` and `react-native-web` version
+You can also compare it with [react-native-particles-webgl](https://github.com/flyskywhy/react-native-particles-webgl) which based on memory leaking [react-three-fiber](https://github.com/pmndrs/react-three-fiber).
 
 #### A `vue.js` version of `particles-bg-vue` is here [https://github.com/lindelof/particles-bg-vue](https://github.com/lindelof/particles-bg-vue)
 

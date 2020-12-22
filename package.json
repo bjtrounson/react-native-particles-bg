@@ -1,11 +1,11 @@
 {
-  "name": "particles-bg",
-  "version": "2.5.0",
-  "description": "a particles background for react",
+  "name": "react-native-particles-bg",
+  "version": "3.0.0",
+  "description": "a particles background for react-native and react-native-web",
   "author": "lindelof",
   "license": "MIT",
-  "repository": "https://github.com/lindelof/particles-bg",
-  "homepage": "https://github.com/lindelof/particles-bg",
+  "repository": "https://github.com/flyskywhy/react-native-particles-bg",
+  "homepage": "https://github.com/flyskywhy/react-native-particles-bg",
   "main": "src/index.js",
   "engines": {
     "node": ">=8",
@@ -15,8 +15,7 @@
   "scripts": {
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
     "build": "rollup -c",
-    "start": "rollup -c -w",
-    "prepare": "npm run build"
+    "start": "rollup -c -w"
   },
   "devDependencies": {
     "@svgr/rollup": "^2.4.1",
