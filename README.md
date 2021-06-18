@@ -37,8 +37,10 @@ You can also compare it with [react-native-particles-webgl](https://github.com/f
 ## Install
 
 ```bash
-npm install --save particles-bg
+npm install react-native-particles-bg @flyskywhy/react-native-gcanvas
 ```
+
+And follow [the steps to install @flyskywhy/react-native-browser-polyfill](https://github.com/flyskywhy/react-native-gcanvas#react-native).
 
 ## Usage
 
