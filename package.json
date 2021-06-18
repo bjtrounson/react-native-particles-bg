@@ -1,6 +1,6 @@
 {
   "name": "react-native-particles-bg",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "a particles background for react-native and react-native-web",
   "author": "lindelof",
   "license": "MIT",
@@ -17,6 +17,14 @@
     "build": "rollup -c",
     "start": "rollup -c -w"
   },
+  "keywords": [
+    "background",
+    "bg",
+    "particles",
+    "proton",
+    "react",
+    "react-native"
+  ],
   "devDependencies": {
     "@svgr/rollup": "^2.4.1",
     "babel-core": "^6.26.3",
