@@ -40,14 +40,14 @@ You can also compare it with [react-native-particles-webgl](https://github.com/f
 npm install react-native-particles-bg @flyskywhy/react-native-gcanvas
 ```
 
-And follow [the steps to install @flyskywhy/react-native-browser-polyfill](https://github.com/flyskywhy/react-native-gcanvas#react-native).
+And follow [the steps to install @flyskywhy/react-native-gcanvas](https://github.com/flyskywhy/react-native-gcanvas#react-native).
 
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import ParticlesBg from 'react-native-particles-bg'
+import ParticlesBg from 'react-native-particles-bg';
 
 class Example extends Component {
   render () {
@@ -56,7 +56,7 @@ class Example extends Component {
         <ParticlesBg type="circle" bg={true} />
         <TouchableOpacity>...</TouchableOpacity>
       </View>
-    )
+    );
   }
 }
 ```
@@ -135,7 +135,7 @@ You can use type="custom" to achieve a higher degree of freedom for the particle
       <View style={{width: 360, height :700, flex: 1}}>
         <ParticlesBg type="custom" config={config} bg={true} />
       </View>
-    )
+    );
 ```
 
 ## Similar projects
