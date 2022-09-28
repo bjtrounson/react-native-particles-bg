@@ -63,6 +63,6 @@
   },
   "peerDependencies": {
     "react-native": ">=0.60.6",
-    "@flyskywhy/react-native-gcanvas": "^2.0.0"
+    "@flyskywhy/react-native-gcanvas": "^2.3.25"
   }
 }
