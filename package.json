@@ -62,7 +62,7 @@
     "raf-manager": "^0.3.0"
   },
   "peerDependencies": {
-    "react-native": "^0.60.6",
+    "react-native": ">=0.60.6",
     "@flyskywhy/react-native-gcanvas": "^2.0.0"
   }
 }
